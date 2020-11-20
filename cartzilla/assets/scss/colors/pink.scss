@@ -1,0 +1,16 @@
+/**
+ * Pink color styles
+ */
+
+ // Bootstrap core
+@import '../../vendor/bootstrap/functions';
+@import '../../vendor/bootstrap/mixins';
+@import '../../vendor/bootstrap/variables';
+
+// Cartzilla setup
+@import '../../include/scss/theme/helpers';
+
+
+$primary:                                                   #fe696a;
+
+@import 'color';

@@ -1,0 +1,23 @@
+/*
+ * Product item
+ */
+// Blocks
+@import "woocommerce/blocks/products";
+
+// Components
+@import "woocommerce/components/product";
+@import "woocommerce/components/product-category";
+@import "woocommerce/components/quick-view";
+@import "woocommerce/components/compare";
+@import "woocommerce/components/brands";
+@import "woocommerce/components/payment-method";
+
+// Widgets
+@import "woocommerce/widgets/shop-sidebar";
+@import "woocommerce/widgets/price-slider";
+
+// Pages
+@import "woocommerce/pages/single-product";
+@import "woocommerce/pages/page-wishlist";
+@import "woocommerce/pages/page-compare";
+@import "woocommerce/pages/wc-pages";

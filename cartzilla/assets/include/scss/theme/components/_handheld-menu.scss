@@ -1,0 +1,63 @@
+//
+// Menu for handheld devices
+// --------------------------------------------------
+
+
+.cz-handheld-menu {
+  ul {
+    display: block;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    > li {
+      display: block;
+      a {
+        display: block;
+        width: 100%;
+        padding: .375rem 0;
+        transition: color .2s ease-in-out;
+        color: $navbar-light-color;
+        text-decoration: none;
+        &:hover { color: $navbar-light-hover-color; }
+      }
+      > ul {
+        padding-left: $spacer;
+        border-left: $border-width solid $border-color;
+        > li > a {
+          font-size: $font-size-md;
+        }
+      }
+    }
+  }
+  > ul > li {
+    border-bottom: $border-width solid $border-color;
+    a {
+      padding: $spacer 0;
+      > i {
+        margin: {
+          top: -.0625rem;
+          right: .4375rem;
+        }
+        opacity: .6;
+        vertical-align: middle;
+      }
+    }
+    > ul {
+      display: none;
+      width: 100% !important;
+      margin-bottom: $spacer;
+      > li a { padding: .375rem 0; }
+    }
+  }
+  .btn {
+    width: 2.125rem;
+    height: 2.125rem;
+    transition: all .25s ease-in-out;
+    &.collapsed { transform: rotate(-180deg); }
+  }
+}
+@-moz-document url-prefix() {
+  .cz-handheld-menu .btn > i {
+    margin-top: -.275rem;
+  }
+}

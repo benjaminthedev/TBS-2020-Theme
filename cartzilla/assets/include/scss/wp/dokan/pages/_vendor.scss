@@ -1,0 +1,95 @@
+.dokan-store {
+    #comments h3 {
+        font-size: $font-size-lg;
+        margin-bottom: $spacer * 1.25;
+    }
+
+    .commentlist {
+        @include list-unstyled;
+        margin-bottom: $spacer * 2;
+
+        .review_comment_container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: $spacer;
+        }
+
+        .dokan-review-author-img {
+            max-width: $display3-size;
+            margin-right: $spacer;
+
+            img {
+                border-radius: 50%;
+            }
+        }
+
+        .comment-text {
+            display: flex;
+            flex-wrap: wrap;
+            flex: 1;
+
+            > * {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            > p {
+                order: -1;
+            }
+
+            [itemprop="author"] {
+                font-size: $font-size-lg;
+                font-weight: $font-weight-medium;
+            }
+
+            .verified,
+            [itemprop="datePublished"] {
+                font-size: $font-size-ms;
+            }
+
+            .dokan-review-wrapper {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        .description {
+            font-size: $font-size-ms;
+            margin-top: $spacer * .5;
+            margin-bottom: $spacer * .5;
+
+            h4 {
+                font-size: $font-size-sm;
+                margin-bottom: $spacer * .5;
+            }
+        }
+    }
+
+    .widget:not( :last-child ) {
+        padding-bottom: $spacer * 1.5;
+    }
+
+    .sidebar-dokan-buttons {
+        > ul li {
+            margin-bottom: $spacer * .5;
+
+            &:not( :last-child ) {
+                margin-right: $spacer * .5;
+            }
+
+            .dokan-btn {
+                margin: 0;
+            }
+        }
+
+        .dokan-right {
+            float: none !important;
+        }
+    }
+
+    .page-title-overlap {
+        .star-rating {
+            position: static;
+            width: auto;
+        }
+    }
+}

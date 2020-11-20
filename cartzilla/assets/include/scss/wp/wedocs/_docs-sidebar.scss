@@ -1,0 +1,11 @@
+.doc-nav-list {
+    .children {
+        display: none;
+    }
+
+    .current_page_item, .current_page_ancestor {
+        > .children {
+            display: block;
+        }
+    }
+}

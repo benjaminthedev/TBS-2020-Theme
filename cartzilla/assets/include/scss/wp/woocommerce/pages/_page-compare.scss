@@ -1,0 +1,30 @@
+.compare-table {
+	.button {
+		display: inline-block;
+	    font-weight: normal;
+	    text-align: center;
+	    vertical-align: middle;
+	    user-select: none;
+	    transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, box-shadow 0.2s ease-in-out;
+	    cursor: pointer;
+	    white-space: nowrap;
+
+	    i {
+	    	display: none;
+	    }
+	}
+
+	.product-image {
+		img {
+			width: 80px;
+		}
+	}
+
+	tbody {
+		th {
+			@include media-breakpoint-down(md) {
+				white-space: nowrap;
+			}
+		}
+	}
+}

@@ -1,0 +1,82 @@
+@mixin make-button {
+    display: inline-block;
+    font-family: $btn-font-family;
+    font-weight: $btn-font-weight;
+    color: $body-color;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: $btn-border-width solid transparent;
+    @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
+    @include transition($btn-transition);
+    cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
+    white-space: nowrap;
+
+    @include hover {
+        color: $body-color;
+        text-decoration: none;
+    }
+
+    &:focus,
+    &.focus {
+        outline: 0;
+        box-shadow: $btn-focus-box-shadow;
+      }
+
+    // Disabled comes first so active can properly restyle
+    &.disabled,
+    &:disabled {
+        opacity: $btn-disabled-opacity;
+        @include box-shadow(none);
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active {
+        @include box-shadow($btn-active-box-shadow);
+
+        &:focus {
+          @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+        }
+    }
+}
+
+
+@mixin make-button-sm {
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+}
+
+@mixin make-wishlist-button {
+    width: $btn-wishlist-size;
+    height: $btn-wishlist-size;
+    padding: 0 !important;
+    transition: $btn-transition;
+    border: 0;
+    border-radius: 50%;
+    background-color: $btn-wishlist-bg;
+    color: $btn-wishlist-color;
+    text-align: center;
+        > i {
+            font-size: $btn-wishlist-font-size;
+            line-height: $btn-wishlist-size;
+        }
+
+    &:hover { color: $btn-wishlist-hover-color; }
+    &:focus { outline: 0; }
+
+    &.btn-sm {
+        width: $btn-wishlist-size-sm;
+        height: $btn-wishlist-size-sm;
+        > i {
+            font-size: $btn-wishlist-font-size-sm;
+            line-height: $btn-wishlist-size-sm;
+        }
+    }
+}
+
+@mixin make-button-block {
+    display: block;
+    width: 100%;
+}
+
+

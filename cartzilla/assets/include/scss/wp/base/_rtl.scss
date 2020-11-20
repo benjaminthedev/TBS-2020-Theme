@@ -1,0 +1,10 @@
+[dir="rtl"] .czi-arrow-right::before {
+  content: "\e908";
+}
+[dir="rtl"] .czi-arrow-left::before {
+  content: "\e90a";
+}
+
+html[dir=rtl] {
+  overflow-x: hidden;
+}

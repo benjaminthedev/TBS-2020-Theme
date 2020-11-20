@@ -1,0 +1,202 @@
+/* Slider */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+    margin-left: 0;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+}
+
+.slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    
+    // [dir="rtl"] & {
+    //     float: right;
+    // }
+    
+    img {
+        display: block;
+    }
+    
+    &.slick-loading img {
+        display: none;
+    }
+
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+}
+
+.slick-arrow.slick-hidden {
+    display: none;
+}
+
+/* Arrows */
+
+.related-product-carousel .slick-arrow {
+    font-size: 0;
+    position: absolute;
+    line-height: 1;
+    border: 1px solid #e3e9ef;
+    padding: 15px;
+    border-radius: 40px;
+    background-color: #fff;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2a2a2a;
+
+    @include hover-focus {
+        outline: none;
+    }
+
+    &:before {
+        font-family: 'cartzilla-icons';
+        font-size: .8088235294rem;
+        line-height: 1;
+    }
+
+    &.slick-prev {
+        left: 0;
+        @include media-breakpoint-up(lg) {
+            left: -22px;
+        }
+
+        &:before {
+            content: "\e908" #{"/*rtl:\"\e90a\"*/"};
+        }
+    }
+
+    &.slick-next {
+        right: 0;
+
+        &:before {
+            content: "\e90a" #{"/*rtl:\"\e908\"*/"};
+        }
+
+       @include media-breakpoint-up(lg) {
+            right: -22px;
+        }
+    }
+
+    &.slick-disabled {
+        border-color: #e3e9ef;
+        color: #c0c0c0;
+    }
+
+    &:hover:not(.slick-disabled) {
+        background-color: #ececec;
+        transition: 0.4s;
+    }
+}
+
+/* Dots */
+
+.related-product-carousel .slick-dots {
+    @include list-unstyled();
+    width: 100%;
+    padding-top: .875rem;
+    padding-bottom: .5rem;
+    text-align: center;
+
+    li {
+        display: inline-block;
+
+        button {
+            display: inline-block;
+            width: .3125rem;
+            height: .3125rem;
+            margin: 0 .375rem;
+            padding: 0;
+            transition: width .2s ease-in-out, background-color .2s ease-in-out;
+            border: 0;
+            border-radius: .15625rem;
+            background-color: #b6bcc5;
+            font-size: 0;
+
+            @include hover-focus {
+                outline: none;
+            }
+        }
+        
+        &.slick-active {
+            button {
+                width: 1.25rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+//
+// Code
+// --------------------------------------------------
+
+pre {
+  margin: 0;
+  padding: {
+    top: $spacer * 1.5;
+    bottom: $spacer * 1.5;
+  }
+  background-color: $pre-bg;
+  font-size: $code-font-size;
+}
+pre {
+  padding: {
+    right: $spacer;
+    left: $spacer;
+  }
+}

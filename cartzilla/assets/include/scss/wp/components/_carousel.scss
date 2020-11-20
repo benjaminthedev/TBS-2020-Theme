@@ -1,0 +1,243 @@
+//
+// Carousel
+// Based on https://github.com/ganlanyuan/tiny-slider
+// --------------------------------------------------
+
+
+// Base style
+
+.cz-carousel {
+  position: relative;
+  .js-slick-carousel {
+    position: relative;
+    touch-action: manipulation;
+    &:active { cursor: grab; }
+    > * { backface-visibility: hidden; }
+  }
+}
+
+
+// Carousel controls (prev/next buttons)
+
+.cz-carousel {
+
+  .slick-controls:focus { outline: none; }
+
+  .slick-arrow {
+    position: absolute;
+    top: 50%;
+    width: $carousel-control-size;
+    height: $carousel-control-size;
+    margin-top: -($carousel-control-size / 2);
+    transition: all .3s ease-in-out;
+    border: $carousel-control-border-width solid $carousel-control-border-color;
+    border-radius: 50%;
+    background-color: $carousel-control-bg;
+    font-size: $carousel-control-size / 3.4;
+    line-height: $carousel-control-size - .125rem;
+    text-align: center;
+    z-index: 10;
+    &.disabled { opacity: 0 !important; }
+  }
+  
+  .czi-arrow-left { left: 1.75rem; }
+  .czi-arrow-right { right: 1.75rem; }
+
+  &.cz-controls-lg .slick-arrow {
+    width: $carousel-control-size-lg;
+    height: $carousel-control-size-lg;
+    margin-top: -($carousel-control-size-lg / 2);
+    font-size: $carousel-control-size-lg / 3.4;
+    line-height: $carousel-control-size-lg - .125rem;
+  }
+
+  &.cz-controls-sm .slick-arrow {
+    width: $carousel-control-size-sm;
+    height: $carousel-control-size-sm;
+    margin-top: -($carousel-control-size-sm / 2);
+    font-size: $carousel-control-size-sm / 3.4;
+    line-height: $carousel-control-size-sm - .125rem;
+  }
+
+  &:not(.cz-controls-static) {
+    .slick-arrow {
+      opacity: 0;
+
+      &.czi-arrow-left {
+        transform: translateX(1rem);
+      }
+
+      &.czi-arrow-right {
+        transform: translateX(-1rem);
+      }
+    }
+    &:hover .slick-arrow {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  &.cz-controls-static {
+    .slick-arrow {
+      position: static;
+      display: inline-block !important;
+    }
+  }
+
+  &.cz-controls-outside {
+    padding: 0 ($carousel-control-size / 2);
+    .czi-arrow-left { left: 0; }
+    .czi-arrow-right { right: 0; }
+    &.cz-controls-lg {
+      padding: 0 ($carousel-control-size-lg / 2);
+    }
+    &.cz-controls-sm {
+      padding: 0 ($carousel-control-size-sm / 2);
+    }
+  }
+
+  &.cz-dots-enabled:not(.cz-dots-inside) {
+    .slick-arrow {
+      margin-top: -(($carousel-control-size / 2) + $carousel-dot-size + 1.375rem);
+    }
+    &.cz-controls-lg .slick-arrow {
+      margin-top: -(($carousel-control-size-lg / 2) + $carousel-dot-size + 1.375rem);
+    }
+    &.cz-controls-sm .slick-arrow {
+      margin-top: -(($carousel-control-size-sm / 2) + $carousel-dot-size + 1.375rem);
+    }
+  }
+}
+
+
+// Carousel dots (nav)
+
+.cz-carousel {
+  .slick-dots {
+    @include list-unstyled;
+    padding: {
+      top: $spacer * .875;
+      bottom: $spacer / 2;
+    }
+    text-align: center;
+
+    li {
+      display: inline-block;
+      width: $carousel-dot-size;
+      height: $carousel-dot-size;
+      margin: 0 .375rem;
+      padding: 0;
+      transition: width .2s ease-in-out, background-color .2s ease-in-out;
+      border: 0;
+      border-radius: $carousel-dot-size / 2;
+      background-color: $carousel-dot-dark-color;
+      button { display: none; }
+      &:focus { outline: none; }
+      &.slick-active {
+        width: $carousel-dot-size * 4;
+        background-color: $carousel-dot-active-color;
+      }
+    }
+  }
+
+  &.cz-dots-left .slick-dots { text-align: left; }
+  &.cz-dots-right .slick-dots { text-align: right; }
+
+  &.cz-dots-light {
+    .slick-dots {
+      background-color: $carousel-dot-light-color;
+    }
+  }
+
+  &.cz-dots-inside .slick-dots {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: $spacer;
+  }
+}
+
+
+// Custom controls
+
+.cz-custom-controls {
+  white-space: nowrap;
+  button { display: none; }
+  &:focus { outline: none; }
+  .slick-arrow {
+    display: inline-block;
+    width: $carousel-control-size-sm;
+    height: $carousel-control-size-sm;
+    margin: .0625rem;
+    transition: all .3s ease-in-out;
+    border: $carousel-control-border-width solid $carousel-control-border-color;
+    border-radius: 50%;
+    background-color: $carousel-control-bg;
+    font-size: $carousel-control-size-sm / 3.4;
+    line-height: $carousel-control-size-sm - .125rem;
+    text-align: center;
+    z-index: 10;
+    &.disabled { opacity: 0 !important; }
+  }
+
+  &.cz-controls-positiond {
+    display: inline-block !important;
+    display: inline-block !important;
+  }
+}
+
+// Layer animations
+.slick-slide {
+  user-select: none;
+  .from-top, .from-bottom,
+  .from-left, .from-right,
+  .scale-up, .scale-down {
+    transition: all .45s .3s ease-in-out;
+    opacity: 0;
+    backface-visibility: hidden;
+  }
+  .from-top {
+    transform: translateY(-45px);
+  }
+  .from-bottom {
+    transform: translateY(45px);
+  }
+  .from-left {
+    transform: translateX(-45px);
+  }
+  .from-right {
+    transform: translateX(45px);
+  }
+  .scale-up {
+    transform: scale(0.8);
+  }
+  .scale-down {
+    transform: scale(1.2);
+  }
+  .delay-1 {
+    transition-delay: .5s;
+  }
+  .delay-2 {
+    transition-delay: .7s;
+  }
+  .delay-3 {
+    transition-delay: .9s;
+  }
+  .delay-4 {
+    transition-delay: 1.1s;
+  }
+  &.slick-active {
+    .from-top, .from-bottom {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .from-left, .from-right {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .scale-up, .scale-down {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}

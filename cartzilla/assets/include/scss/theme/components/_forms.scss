@@ -1,0 +1,257 @@
+//
+// Forms
+// --------------------------------------------------
+
+
+// Label
+
+label {
+  padding-top: .0625rem;
+  font-size: $label-font-size;
+  &:not(.form-check-label):not(.custom-control-label):not(.custom-file-label):not(.custom-option-label) {
+    color: $headings-color;
+  }
+}
+.col-form-label {
+  font-size: $label-font-size;
+}
+
+
+// Password visibility toggle
+
+.password-toggle {
+	position: relative;
+	.form-control {
+		padding-right: $font-size-base + ($spacer * 2);
+	}
+}
+.password-toggle-btn {
+	position: absolute;
+	top: 50%;
+	right: .625rem;
+	margin-bottom: 0;
+	padding: $spacer / 2;
+	transform: translateY(-50%);
+	font-size: $btn-font-size-lg;
+	line-height: 1;
+	cursor: pointer;
+	.password-toggle-indicator {
+		transition: color .2s ease-in-out;
+		color: $input-placeholder-color;
+		&:hover { color: $input-color; }
+	}
+	.custom-control-input:checked ~ .password-toggle-indicator {
+		color: $primary;
+	}
+}
+
+
+// Custom control label
+
+.custom-control:focus,
+.custom-control-label:focus { outline: none; }
+
+
+// Custom switch
+
+.custom-switch {
+  .custom-control-label::before {
+    height: $custom-switch-height;
+    border: 0;
+    background-color: $custom-switch-bg;
+  }
+  .custom-control-label {
+    &::before, &::after {
+      margin-top: -.125rem;
+    }
+    &::after {
+      background-color: $custom-switch-indicator-bg;
+      box-shadow: $custom-switch-indicator-box-shadow;
+    }
+  }
+  .custom-control-input:checked ~ .custom-control-label {
+    &::before {
+      box-shadow: 0 .375rem .875rem -.3rem $custom-control-indicator-checked-bg;
+    }
+    &::after {
+      transform: translateX($custom-switch-width - $custom-switch-height);
+    }
+  }
+  .custom-control-input:disabled ~ .custom-control-label {
+    &::before {
+      background-color: $custom-switch-disabled-bg;
+    }
+    &::after {
+      opacity: .8;
+    }
+  }
+}
+.input-group-text .custom-control {
+  margin-right: -.625rem;
+}
+
+
+// Disabled inputs
+
+.form-control:disabled {
+  cursor: not-allowed;
+}
+
+
+// Form text
+
+.form-text {
+  padding-top: .125rem;
+  font-size: $font-size-xs;
+}
+
+
+// Subscription form status
+
+.subscribe-status {
+  @include border-radius($border-radius-sm);
+  font-size: $font-size-ms;
+  text-align: center;
+  &.status-success,
+  &.status-error {
+    margin-top: .5rem;
+    padding: .25rem .375rem;
+  }
+  &.status-success {
+    background-color: rgba($success, .1);
+    color: $success;
+  }
+  &.status-error {
+    background-color: rgba($danger, .1);
+    color: $danger;
+  }
+}
+
+
+// Custom select
+
+select {
+  max-width: 100%;
+  -webkit-appearance: none;
+  @extend .custom-select;
+}
+
+.select2-container .select2-selection--single {
+  height: $input-height !important;
+  .select2-selection__rendered {
+    padding: {
+      right: 1.75rem !important;
+      left: $input-btn-padding-x !important;
+    }
+  }
+}
+.select2-container--default .select2-selection--single {
+  border: $input-border-width solid $input-border-color !important;
+  &:focus { outline: none !important; }
+  .select2-selection__rendered {
+    line-height: $input-height !important;
+  }
+  .select2-selection__arrow {
+    height: $input-height !important;
+    right: .425rem !important;
+  }
+}
+.select2-container--default .select2-search--dropdown {
+  position: relative;
+  padding: ($input-btn-padding-x / 2) !important;
+  &::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 1.125rem;
+    margin-top: -.625rem;
+    font: {
+      family: 'cartzilla-icons';
+      size: $font-size-sm;
+    }
+    content: '\e972';
+  }
+  .select2-search__field {
+    border-color: $input-border-color !important;
+    @extend .form-control;
+    @extend .form-control-sm;
+    padding-right: 1.5rem;
+    &:focus {
+      border-color: $input-focus-border-color !important;
+    }
+  }
+}
+.select2-dropdown {
+  border: $input-border-width solid $input-border-color !important;
+  z-index: 999 !important;
+  &.select2-dropdown--below {
+    border-top: 0 !important;
+  }
+  &.select2-dropdown--above {
+    border-bottom: 0 !important;
+  }
+}
+.select2-container--default .select2-results > .select2-results__options {
+  font-size: $font-size-sm;
+}
+.select2-results__option {
+  padding: {
+    right: .5rem !important;
+    left: .5rem !important;
+  }
+  &:focus { outline: none; }
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[data-selected] {
+  background-color: $gray-100 !important;
+  color: $primary !important;
+}
+.select2-container--default .select2-results__option[aria-selected=true], .select2-container--default .select2-results__option[data-selected=true] {
+  background-color: $gray-100 !important;
+  color: $primary !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__clear {
+  font: {
+    size: $font-size-lg !important;
+    weight: normal !important;
+  }
+}
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+  color: $input-placeholder-color !important;
+}
+
+
+// WooCommerce forms
+
+.woocommerce-page .form-row {
+	display: block;
+	margin: {
+		right: 0;
+		left: 0;
+	}
+}
+
+.woocommerce-page abbr.required {
+	color: $danger;
+}
+
+
+// Filter by Attribute
+
+.cz-filter-item {
+  .custom-control-label {
+    color: $body-color;
+    &::before, &::after { top: .0625rem; }
+  }
+  &.chosen .custom-control-label::before {
+    color: $custom-control-indicator-checked-color;
+    border-color: $custom-control-indicator-checked-border-color;
+    @include gradient-bg($custom-control-indicator-checked-bg);
+    @include box-shadow($custom-control-indicator-checked-box-shadow);
+  }
+  &.chosen .custom-checkbox .custom-control-label::after {
+    background-image: escape-svg($custom-checkbox-indicator-icon-checked);
+  }
+  &.chosen .custom-radio .custom-control-label::after {
+    background-image: escape-svg($custom-radio-indicator-icon-checked);
+  }
+}

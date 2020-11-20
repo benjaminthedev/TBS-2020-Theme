@@ -1,0 +1,87 @@
+//
+// Reboot
+// --------------------------------------------------
+
+html * {
+  @include font-smoothing;
+}
+
+// Links
+a:focus { outline: none; }
+a { transition: $link-transition; }
+
+// Images
+// Responsive images (ensure images don't scale beyond their parents)
+img,
+figure {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+svg { max-width: 100%; }
+
+// Responsive iframes
+iframe {
+  width: 100%;
+  border: 0;
+}
+
+// Horizontal rule
+hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid $border-color;
+}
+
+// Text Selection Color
+::selection {
+  background: rgba($accent, .15);
+}
+::-moz-selection {
+  background: rgba($accent, .15);
+}
+
+// Change Bootstrap default .container-fluid paddings
+@include media-breakpoint-up(xl) {
+  .container-fluid {
+    padding-right: $grid-gutter-width;
+    padding-left: $grid-gutter-width;
+  }
+}
+.container .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+@include media-breakpoint-down(lg) {
+  .container-fluid .container {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+
+small {
+	font-weight: inherit;
+}
+
+blockquote {
+  margin: 0 0 1rem;
+}
+
+ins { text-decoration: none; }
+
+// Remove top padding from body when screen size below md (992px)
+@include media-breakpoint-down(md) {
+  body { padding-top: 0 !important; }
+}
+
+// Disable button :focus outline
+button:focus {
+  outline: none;
+}
