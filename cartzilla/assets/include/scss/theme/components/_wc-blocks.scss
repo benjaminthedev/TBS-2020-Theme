@@ -1,0 +1,368 @@
+//
+// Gutenberg blocks
+// --------------------------------------------------
+
+
+// Group (Container)
+.wp-block-group {
+  width: 100%;
+  max-width: map-get($container-max-widths, xl);
+  margin: {
+    right: auto;
+    left: auto;
+  }
+  padding: {
+    right: $grid-gutter-width / 2;
+    left: $grid-gutter-width / 2;
+  }
+  &.alignwide,
+  &.alignfull { max-width: 100%; }
+}
+.container {
+  .wp-block-group,
+  .wp-block-group.alignwide,
+  .wp-block-group.alignfull {
+    max-width: 100%;
+    padding: {
+      right: 0 !important;
+      left: 0 !important;
+    }
+  }
+}
+.wp-block-group {
+  .container,
+  .container-fluid,
+  .wp-block-group {
+    padding: {
+      right: 0 !important;
+      left: 0 !important;
+    }
+  }
+}
+@include media-breakpoint-up(xl) {
+  .wp-block-group.alignwide,
+  .wp-block-group.alignfull {
+    padding: {
+      right: $grid-gutter-width;
+      left: $grid-gutter-width;
+    }
+    .container,
+    .wp-block-group {
+      padding: {
+        right: $grid-gutter-width / 2 !important;
+        left: $grid-gutter-width / 2 !important;
+      }
+    }
+  }
+}
+
+
+// Cover
+.wp-block-cover-image,
+.wp-block-cover { 
+  height: auto;
+  margin-bottom: 1rem;
+
+  p:not(.has-text-color) { color: $white; }
+}
+
+// Button
+.wp-block-button__link {
+  padding: $btn-padding-y $btn-padding-x;
+  font: {
+    size: $btn-font-size;
+    weight: $btn-font-weight;
+  }
+}
+.is-style-outline .wp-block-button__link {
+  border-width: $border-width;
+  background-color: transparent !important;
+}
+
+// File
+.wp-block-file {
+  display: table;
+  padding: .75rem;
+  border: $border-width dashed darken($border-color, 4%);
+  border-radius: $border-radius;
+  > a { display: inline-block; }
+  > a:not(.wp-block-file__button) {
+    margin-right: .75rem;
+    color: $body-color;
+    font: {
+      size: $font-size-sm;
+      weight: $font-weight-medium;
+    }
+  }
+  > .wp-block-file__button {
+    transition: $btn-transition;
+    border-radius: $border-radius-sm;
+    background-color: $primary;
+    margin-left: 0 !important;
+    opacity: 1 !important;
+    &:hover {
+      background-color: darken($primary, 8%);
+    }
+  }
+  &.alignright {
+    margin-left: auto;
+    text-align: left !important;
+  }
+  &.aligncenter {
+    margin: {
+      right: auto;
+      left: auto;
+    }
+  }
+}
+
+// Quote
+.wp-block-quote {
+  padding: {
+    top: .5rem;
+    left: 1.25rem;
+    bottom: .5rem;
+  }
+  border-left: .25rem solid $border-color;
+  cite {
+    display: block;
+    position: relative;
+    color: $gray-600;
+    font: {
+      size: $font-size-ms;
+      style: normal;
+    }
+    &::before {
+      display: inline-block;
+      width: .75rem;
+      height: .0625rem;
+      margin-right: .5rem;
+      background-color: darken($border-color, 10%);
+      vertical-align: middle;
+      content: '';
+    }
+  }
+  &.has-text-align-center {
+    padding-left: 0;
+    border-left: 0;
+  }
+  &.has-text-align-right {
+    padding: {
+      right: 1.25rem;
+      left: 0;
+    }
+    border: {
+      left: 0;
+      right: .25rem solid $border-color;
+    }
+  }
+}
+
+// Pullquote
+.wp-block-pullquote {
+  padding: 1.75rem 0;
+  border: {
+    top: .25rem solid $border-color;
+    bottom: .25rem solid $border-color;
+  }
+  blockquote { margin-bottom: 0; }
+  p {
+    font: {
+      size: $font-size-base * 1.25;
+      weight: $font-weight-light;
+    }
+  }
+  cite {
+    color: $headings-color;
+    font: {
+      weight: $font-weight-medium;
+      style: normal;
+    }
+  }
+  &.alignleft,
+  &.alignright {
+    width: 100%;
+    max-width: 100%;
+    text-align: center !important;
+  }
+  &.is-style-solid-color {
+    padding: 1.75rem 1.5rem;
+    border-radius: $border-radius-lg;
+    blockquote {
+      width: 100%;
+      max-width: 100%;
+      text-align: center !important;
+      p {
+        margin-bottom: $spacer;
+        font-size: $font-size-base * 1.25;
+        line-height: 1.5;
+      }
+      cite { color: inherit; }
+    }
+  }
+}
+
+// Table
+.wp-block-table {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  table {
+    border: 0;
+    border: {
+      top: $border-width solid $border-color !important;
+      left: $border-width solid $border-color !important;
+    }
+    tr td, tr th {
+      padding: $table-cell-padding;
+      border: {
+        bottom: $border-width solid $border-color !important;
+        right: $border-width solid $border-color !important;
+      }
+    }
+  }
+  &.is-style-stripes {
+    table {
+      border-left: 0 !important;
+      tr td, tr th { border-right: 0 !important; }
+    }
+  }
+}
+
+// Widget: Categories / Archives
+.wp-block-categories-list,
+.wp-block-archives-list {
+  display: block;
+  margin: 0;
+  margin-bottom: $grid-gutter-width;
+  padding: 0;
+  padding-bottom: $grid-gutter-width;
+  border-bottom: $widget-border-width solid $widget-border-color;
+  font-size: $font-size-sm;
+  list-style: none;
+  ul {
+    padding: {
+      top: 0.25rem;
+      left: .75rem;
+    }
+    border-left: $widget-border-width solid $widget-border-color;
+  }
+  > li,
+  ul > li {
+    margin-bottom: $spacer * .375;
+    color: $gray-600;
+    font-size: $font-size-xs;
+    &:last-child { margin-bottom: 0; }
+    > a {
+      display: inline-block;
+      margin-right: .5rem;
+      transition: $widget-transition;
+      color: $widget-links-dark-color;
+      font-size: $font-size-sm;
+      &:hover {
+        color: $widget-links-dark-hover-color;
+      }
+      &.active > a {
+        color: $widget-links-dark-active-color;
+      }
+    }
+  }
+}
+
+// WP Block Embed
+.wp-block-embed.alignwide * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-block-embed.alignwide figcaption,
+.wp-block-embed-wordpress-tv.alignfull {
+  text-align: center;
+}
+
+.is-type-video.wp-block-embed {
+  .wp-block-embed__wrapper {
+    @extend .embed-responsive;
+
+    iframe {
+      @extend .embed-responsive-item;
+    }
+  }
+
+  &.wp-embed-aspect-21-9 {
+    .wp-block-embed__wrapper {
+      @extend .embed-responsive-21by9;
+    }
+  }
+
+  &.wp-embed-aspect-16-9 {
+    .wp-block-embed__wrapper {
+      @extend .embed-responsive-16by9;
+    }
+  }
+
+  &.wp-embed-aspect-4-3 {
+    .wp-block-embed__wrapper {
+      @extend .embed-responsive-4by3;
+    }
+  }
+
+  &.wp-embed-aspect-1-1 {
+    .wp-block-embed__wrapper {
+      @extend .embed-responsive-1by1;
+    }
+  }
+}
+
+.wp-block-embed-facebook {
+  .wp-block-embed__wrapper {
+    @extend .embed-responsive;
+
+    iframe {
+      @extend .embed-responsive-item;
+    }
+  }
+
+  .fb_iframe_widget {
+    max-width: 100% !important;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .wp-block-embed-instagram iframe,
+  .fb_iframe_widget_fluid span, 
+  .wp-block-embed-facebook .fb_iframe_widget iframe {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+}
+
+// Color palette
+.has-primary-color { color: $primary !important; }
+.has-primary-background-color { background-color: $primary !important; }
+.has-accent-color { color: $accent !important; }
+.has-accent-background-color { background-color: $accent !important; }
+.has-info-color { color: $info !important; }
+.has-info-background-color { background-color: $info !important; }
+.has-success-color { color: $success !important; }
+.has-success-background-color { background-color: $success !important; }
+.has-warning-color { color: $warning !important; }
+.has-warning-background-color { background-color: $warning !important; }
+.has-danger-color { color: $danger !important; }
+.has-danger-background-color { background-color: $danger !important; }
+.has-white-color { color: $white !important; }
+.has-white-background-color { background-color: $white !important; }
+.has-lighter-gray-color { color: $gray-100 !important; }
+.has-lighter-gray-background-color { background-color: $gray-100 !important; }
+.has-light-gray-color { color: $gray-200 !important; }
+.has-light-gray-background-color { background-color: $gray-200 !important; }
+.has-medium-gray-color { color: $gray-600 !important; }
+.has-medium-gray-background-color { background-color: $gray-600 !important; }
+.has-default-gray-color { color: $gray-700 !important; }
+.has-default-gray-background-color { background-color: $gray-700 !important; }
+.has-dark-gray-color { color: $gray-800 !important; }
+.has-dark-gray-background-color { background-color: $gray-800 !important; }
+.has-darker-gray-color { color: $gray-900 !important; }
+.has-darker-gray-background-color { background-color: $gray-900 !important; }
+.has-black-color { color: $black !important; }
+.has-black-background-color { background-color: $black !important; }

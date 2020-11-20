@@ -1,0 +1,567 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Elements
+# Navigation
+    ## Links
+    ## Menus
+# Alignments
+# Clearings
+# Widgets
+# Content
+    ## Posts and pages
+    ## Comments
+# Infinite scroll
+# Media
+    ## Captions
+    ## Galleries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+* {
+  word-break: break-word;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+blockquote {
+  margin: 0 1.5em;
+}
+
+address {
+  margin: 0 0 1.5em;
+}
+
+figure {
+  margin: 1em 0;
+
+  /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+table {
+  margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Menus
+--------------------------------------------------------------*/
+
+.main-navigation {
+  clear: both;
+  display: block;
+  float: left;
+  width: 100%;
+
+  ul {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+    ul {
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+      float: left;
+      position: absolute;
+      top: 100%;
+      left: -999em;
+      z-index: 99999;
+
+      ul {
+        left: -999em;
+        top: 0;
+      }
+
+      li {
+        &:hover > ul, &.focus > ul {
+          left: 100%;
+        }
+      }
+
+      a {
+        width: 200px;
+      }
+    }
+
+    li {
+      &:hover > ul, &.focus > ul {
+        left: auto;
+      }
+    }
+  }
+
+  li {
+    float: left;
+    position: relative;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+}
+
+/* Small menu. */
+
+.menu-toggle, .main-navigation.toggled ul {
+  display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-navigation ul {
+    display: block;
+  }
+}
+
+.site-main {
+  .comment-navigation, .posts-navigation, .post-navigation {
+    margin: 0 0 1.5em;
+    overflow: hidden;
+  }
+}
+
+.comment-navigation .nav-previous, .posts-navigation .nav-previous, .post-navigation .nav-previous {
+  float: left;
+  width: 50%;
+}
+
+.comment-navigation .nav-next, .posts-navigation .nav-next, .post-navigation .nav-next {
+  float: right;
+  text-align: right;
+  width: 50%;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body:not( .has-sidebar ) {
+  .alignwide {
+    @include media-breakpoint-up(lg) {
+      margin-left: -17%;
+      margin-right: -17%;
+      max-width: 1000%;
+      width: auto;
+      text-align: center;
+    }
+  }
+
+  .alignfull {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw + 7.5px);
+    width: auto;
+    max-width: 1000%;
+    clear: both;
+
+    @include media-breakpoint-up(xl) {
+      margin-left: calc(50% - 50vw + 7.5px);
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+
+.clear {
+  &:before, &:after {
+    content: "";
+    display: table;
+    table-layout: fixed;
+  }
+}
+
+.entry-content {
+  &:before, &:after {
+    content: "";
+    display: table;
+    table-layout: fixed;
+  }
+}
+
+.comment-content {
+  &:before, &:after {
+    content: "";
+    display: table;
+    table-layout: fixed;
+  }
+}
+
+.site-header {
+  &:before, &:after {
+    content: "";
+    display: table;
+    table-layout: fixed;
+  }
+}
+
+.site-content {
+  &:before, &:after {
+    content: "";
+    display: table;
+    table-layout: fixed;
+  }
+}
+
+.site-footer {
+  &:before, &:after {
+    content: "";
+    display: table;
+    table-layout: fixed;
+  }
+}
+
+.clear:after, .entry-content:after, .comment-content:after, .site-header:after, .site-content:after, .site-footer:after {
+  clear: both;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+
+.widget {
+  margin: 0 0 1.5em;
+
+  /* Make sure select elements fit in widgets. */
+
+  select {
+    max-width: 100%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+  outline: 0;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+  display: inline-block;
+}
+
+
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+
+.sticky {
+  display: block;
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+  }
+}
+
+.post {
+  margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+  display: none;
+}
+
+.page-content, .entry-content, .entry-summary {
+  margin: 1.5em 0 0;
+}
+
+.page-links {
+  clear: both;
+  margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+
+.comment {
+    &.bypostauthor {
+        h6 {
+            display: flex;
+            align-items: center;
+            
+            &:after {
+                font-family: "Font Awesome 5 Free";
+                content: "\f02e";
+                font-weight: 400;
+                margin-left: 9.5px;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+.comment-content a {
+  word-wrap: break-word;
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+
+.infinite-scroll {
+  .posts-navigation, &.neverending .site-footer {
+    /* Theme Footer (when set to scrolling) */
+    display: none;
+  }
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+
+.infinity-end.neverending .site-footer {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+
+.page-content .wp-smiley, .entry-content .wp-smiley, .comment-content .wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+
+embed, iframe, object {
+  max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+
+  img[class*="wp-image-"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .wp-caption-text {
+    margin: 0.8075em 0;
+  }
+}
+
+.wp-caption-text {
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+
+.gallery {
+  margin-bottom: 1.5em;
+}
+
+.alignleft,
+.alignright {
+  &[class*="columns-"] {
+    display: flex;
+  }
+}
+
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+  max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+  max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+  max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+  max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+  max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+  max-width: 11.11%;
+}
+
+.gallery-columns-10 .gallery-item {
+  max-width: 10%;
+}
+
+.gallery-caption {
+  display: block;
+}
+
+
+.cz-sidebar {
+    .nav {
+        flex-shrink: 0;
+    }
+
+   .widget {
+        margin: 30px 0 0;
+        padding-top: 30px;
+        border-top: 1px solid #e3e9ef;
+        padding-bottom: 0;
+        border-bottom: 0;
+        &:first-child {
+          margin-top: 0;
+          padding-top: 0;
+          border-top: 0;
+        }
+    }
+}
+
+.cz-sidebar-body {
+  padding-right: 1.875rem !important;
+}
+
+.widget_cartzilla_recent_posts {
+    img.rounded.wp-post-image {
+        height: 64px;
+        object-fit: cover;
+    }
+}
+
+.cz-sidebar-fixed .cz-handheld-menu > ul > li a > i {
+  font-size: 1.125rem;
+  margin-top: -.25rem;
+  margin-right: .5rem;
+}
+
+.cz-sidebar-fixed .cz-handheld-menu > ul > li.text-danger a > i {
+  color: #f34770;
+  opacity: 1;
+}
+
+
+.site-header-marketplace .navbar .mega-nav .mega-dropdown .mega-menu-container .dropdown-menu {
+    display: block;
+    min-width: 12.5rem;
+
+    li.mega-dropdown-column {
+        width: auto;
+        display: block;
+
+        > a{
+            padding: .425rem 1.3rem;
+            font-size: .875rem;
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+    }
+
+    .dropdown-item.product-title {
+        padding: 0.4rem 1.3rem 0.7rem;
+
+        a {
+            font-weight: 500;
+            padding: 0;
+
+        &:after {
+            content: "\e90a";
+            font-size: 0.75rem;
+            margin-left: 0.25rem;
+            font-family: 'cartzilla-icons';
+        }
+
+        [dir="rtl"] & {
+            &:before {
+              content: "\e908";
+              font-size: 0.75rem;
+              margin-left: 0.25rem;
+              font-family: 'cartzilla-icons';
+          }
+
+          &:after {
+            content: none;
+          }
+        }
+    }
+
+  }
+}
+
+.cz-offcanvas,
+.cz-sidebar-fixed {
+    .dropdown {
+        > div {
+            position: relative;
+
+            &:hover > a {
+                color: $primary;
+            }
+        }
+
+        button.btn {
+            &.collapsed {
+                transform: none;
+
+                i {
+                    transform: rotate(-180deg);
+                }
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+        }
+    }
+}

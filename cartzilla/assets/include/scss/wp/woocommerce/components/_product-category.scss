@@ -1,0 +1,41 @@
+ul.loop-product-categories {
+	li.product-category {
+		a {
+			display: block;
+			border-radius: .4375rem;
+
+			img {
+				width: 100%;
+			}
+		}
+		.woocommerce-loop-category__title {
+			font-size: 1.25rem;
+			text-align: center;
+			margin-top: 1rem;
+
+			mark {
+				background: transparent;
+				font-size: 0.9375rem;
+				color: $text-muted;
+			}
+		}
+		
+	}
+}
+
+.product-categories-grid {
+	&__image {
+		img {
+			display: block;
+			width: 100%;
+			@include media-breakpoint-up(lg) {
+				height: 210px;
+				object-fit: cover;
+			}
+		}
+	}
+	.view-all {
+		border-top: 1px solid #e3e9ef;
+    	padding-top: .4rem;
+	}
+}

@@ -1,0 +1,26 @@
+ul.products {
+	.product_quick_view {
+		font-size: .8125rem;
+		color: #4b566b;
+		display: block;
+		text-align: center;
+	}
+}
+
+.list-view {
+	ul.products {
+		.product_quick_view {
+			text-align: left;
+		}
+	}
+}
+
+.modal-quick-view.show .cd-quick-view .modal-body {
+
+	.star-rating {
+		width: 4.7rem;
+		letter-spacing: 2px;
+	}
+}
+
+

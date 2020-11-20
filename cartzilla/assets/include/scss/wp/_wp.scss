@@ -1,0 +1,25 @@
+@import 'mixins/button';
+@import 'mixins/form-control';
+
+@import 'base/base';
+@import 'base/page';
+@import 'base/rtl';
+
+@import 'components/button';
+@import 'components/form';
+@import 'components/select2';
+@import 'components/carousel';
+@import 'components/countdown';
+@import 'components/slick';
+@import 'components/block';
+
+
+@import 'woocommerce';
+
+@import 'dokan';
+
+@import 'integrations/color-swatches';
+
+@import 'integrations/wpform';
+
+@import 'wedocs';

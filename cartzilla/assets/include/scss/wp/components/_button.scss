@@ -1,0 +1,38 @@
+.woocommerce-widget-layered-nav-dropdown__submit,
+table.wishlist_table .product-add-to-cart .remove_from_wishlist,
+.dokan-product-listing .dokan-product-listing-area.cartzilla-dokan-product-listing .row-actions a {
+	@include make-button;
+}
+
+.woocommerce-widget-layered-nav-dropdown__submit,
+.yith-wcwl-form.wishlist-fragment .hidden-title-form input[type="submit"],
+.compare-table .button,
+.wp-block-button .wp-block-button__link {
+	@extend .btn-primary;
+}
+
+.woocommerce-widget-layered-nav-dropdown__submit,
+table.wishlist_table .product-add-to-cart .remove_from_wishlist,
+.compare-table .button {
+	@include make-button-sm;
+}
+
+.single-product .cartzilla-tabs .yith-wcwl-add-to-wishlist a,
+.single-product.style-v4 .entry-summary .yith-wcwl-add-to-wishlist a {
+	@include make-button;
+	display: block;
+	//@extend .btn-secondary;
+	color: #2b3445;
+    background-color: $secondary;
+    border-color: $secondary;
+
+    &:hover {
+    	background: #dae0ec;
+    	border-color: transparent;
+    }
+}
+
+.single-product.style-v2 .add-to-compare-link {
+	@include make-button-block;
+}
+

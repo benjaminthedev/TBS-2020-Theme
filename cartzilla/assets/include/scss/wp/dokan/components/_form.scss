@@ -1,0 +1,15 @@
+.dokan-form-control:not(select) {
+    @include make-form-control;
+}
+
+select.dokan-form-control {
+    @extend .custom-select;
+
+    &.chosen {
+        height: auto;
+    }
+}
+
+textarea.dokan-form-control {
+    height: auto;
+}

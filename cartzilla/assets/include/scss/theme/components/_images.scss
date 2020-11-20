@@ -1,0 +1,24 @@
+//
+// Images & Figures
+// --------------------------------------------------
+
+
+// Figures
+
+.figure {
+  padding: $figure-padding;
+  border: $figure-border-width solid $figure-border-color;
+  @include border-radius($figure-border-radius);
+  background-color: $figure-bg;
+}
+.figure-caption {
+  padding: 0 $figure-padding;
+}
+
+.wp-block-image figcaption,
+.blocks-gallery-caption {
+  display: block;
+  width: 100%;
+  font-size: $font-size-ms;
+  text-align: center;
+}
