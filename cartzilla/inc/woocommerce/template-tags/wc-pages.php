@@ -49,9 +49,12 @@ function cartzilla_wc_cart_coupon_remove( $coupon ) {
 function cartzilla_wc_checkout_address_fields( $fields ) {
 	foreach ( $fields as $field => &$args ) {
 		switch ( $field ) {
+				case 'billing_email':
+				$args['class']       = [ 'form-group', 'col-sm-12' ];
+				$args['input_class'] = [ 'form-control' ];
+				break;
 			case 'first_name':
 			case 'last_name':
-			case 'company':
 			case 'billing_phone':
 				$args['class']       = [ 'form-group', 'col-sm-6' ];
 				$args['input_class'] = [ 'form-control' ];
@@ -62,20 +65,17 @@ function cartzilla_wc_checkout_address_fields( $fields ) {
 				$args['input_class'] = [ 'form-control' ];
 				break;
 
+			case 'company':	
 			case 'address_1':
-			case 'address_2':
 				$args['class']       = [ 'form-group', 'col-sm-12', 'address-field' ];
 				$args['input_class'] = [ 'form-control' ];
 				break;
 
+			case 'address_2':
 			case 'city':
 			case 'state':
 			case 'postcode':
 				$args['class']       = [ 'form-group', 'col-sm-6', 'address-field' ];
-				$args['input_class'] = [ 'form-control' ];
-				break;
-			case 'billing_email':
-				$args['class']       = [ 'form-group', 'col-sm-12' ];
 				$args['input_class'] = [ 'form-control' ];
 				break;
 		}
