@@ -21,6 +21,10 @@
 <body <?php body_class(); ?>>
 
 <?php wp_body_open(); ?>
+	
+<?php do_action('google_tag_manager_before'); ?>
+	
+<?php do_action('google_customer_reviews_before'); ?>	
 
 <?php do_action( 'cartzilla_before_site' ); ?>
 

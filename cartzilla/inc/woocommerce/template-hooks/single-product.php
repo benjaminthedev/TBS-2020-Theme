@@ -27,8 +27,6 @@ add_action( 'woocommerce_before_single_product',                        'cartzil
 add_action( 'woocommerce_after_single_product_summary',                 'cartzilla_toggle_shop_loop_hooks', 1 );
 
 add_action( 'woocommerce_after_single_product_summary',                 'woocommerce_upsell_display',          250 ); 
-add_action( 'woocommerce_after_single_product_summary',                 'cartzilla_output_related_products',   260 ); 
-
 
 /** 
  * remove on single product panel 'Additional Information' since it already says it on tab.

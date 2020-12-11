@@ -69,7 +69,6 @@ add_action( 'woocommerce_after_shop_loop_item_title',           'cartzilla_wc_lo
 add_action( 'woocommerce_after_shop_loop_item_title',           'cartzilla_wc_loop_product_body_content_wrap_close',       20 );
 add_action( 'woocommerce_after_shop_loop_item_title',           'cartzilla_wc_loop_product_hidden_body_content_wrap_open', 30 );
 add_action( 'woocommerce_after_shop_loop_item_title',           'woocommerce_template_loop_add_to_cart',                   50 ); 
-add_action( 'woocommerce_after_shop_loop_item_title',           'cartzilla_quick_view_link',                               60 ); 
 add_action( 'woocommerce_after_shop_loop_item_title',           'cartzilla_wc_loop_product_hidden_body_content_wrap_close', 80 );
 
 add_action( 'woocommerce_after_shop_loop_item',                 'cartzilla_wc_loop_product_grid_view_wrap_close',           10 );
@@ -84,8 +83,7 @@ add_action( 'woocommerce_after_shop_loop_item',                 'cartzilla_wc_lo
 add_action( 'woocommerce_after_shop_loop_item',                 'cartzilla_wc_loop_product_title',                         100 );
 add_action( 'woocommerce_after_shop_loop_item',                 'cartzilla_wc_loop_product_price_rating',                  110 );
 add_action( 'woocommerce_after_shop_loop_item',                 'cartzilla_wc_loop_product_hidden_body_content_wrap_open', 120 );
-add_action( 'woocommerce_after_shop_loop_item',                 'woocommerce_template_loop_add_to_cart',                   140 );
-add_action( 'woocommerce_after_shop_loop_item',                 'cartzilla_quick_view_link',                               145 ); 
+add_action( 'woocommerce_after_shop_loop_item',                 'woocommerce_template_loop_add_to_cart',                   140 ); 
 add_action( 'woocommerce_after_shop_loop_item',                 'cartzilla_wc_loop_product_hidden_body_content_wrap_close',150 );
 add_action( 'woocommerce_after_shop_loop_item',                 'cartzilla_wc_loop_product_body_content_wrap_close',       160 );
 add_action( 'woocommerce_after_shop_loop_item',                 'cartzilla_wc_loop_product_list_view_inner_wrap_close',    170 );

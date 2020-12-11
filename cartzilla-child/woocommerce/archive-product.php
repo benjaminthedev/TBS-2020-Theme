@@ -86,37 +86,7 @@ if ( cartzilla_get_shop_page_style() == 'style-v2' ) { ?>
 			<?php } ?>
 		</div>
 	</div><?php
-} ?>
-
-<?php
-
-//Woocommerce Archive Description for Ben
-
-// do_action( 'woocommerce_archive_description');   
-// if( ! function_exists( 'cz_child_display_product_category_description_with_image' ) ) {
-//     function cz_child_display_product_category_description_with_image() {
-//         $brands_taxonomy = cartzilla_get_brands_taxonomy();
-//         if ( is_product_category() || is_tax( $brands_taxonomy ) ) {
-//             global $wp_query;
-//             $cat = $wp_query->get_queried_object();
-//             $thumbnail_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-//             $image = wp_get_attachment_image_src( $thumbnail_id );
-//             $term_description = term_description();
-//             if( ! empty( $image ) || ! empty( $term_description ) ) {
-//                 ?><div class="media align-items-center mb-4"><?php
-//                     if( ! empty( $image ) ) {
-//                         ?><img class="mr-3" src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" height="<?php echo $image[2]; ?>" /><?php
-//                     }
-//                     if( ! empty( $term_description ) ) {
-//                         ?><div class="media-body"><?php echo $term_description; ?></div><?php
-//                     }
-//                 ?></div><?php
-//             }
-//         }
-//     }
-// }
-// add_action( 'woocommerce_archive_description', 'cz_child_display_product_category_description_with_image', 16 );
-
+} 
 ?>
 
 
