@@ -48,6 +48,7 @@ if ( $_cz_is_filters_active && cartzilla_enable_cz_filters() ) {
 
 if ( cartzilla_get_shop_page_style() == 'style-v2' ) { ?>
 	<div class="<?php echo cartzilla_wc_catalog_type() ===  'dark'  ? 'bg-accent' : 'bg-secondary'; ?> pt-4 pb-5">
+
 	    <div class="container pt-2 pb-3 pt-lg-3 pb-lg-4">
 	        <div class="d-lg-flex justify-content-between pb-3">
 		        <div class="order-lg-2 mb-3 mb-lg-0 pt-lg-2">
@@ -89,6 +90,31 @@ if ( cartzilla_get_shop_page_style() == 'style-v2' ) { ?>
 } 
 ?>
 
+		
+<div class="container pl-4 pb-5">
+	<div class="row">
+
+<?php
+//show category description
+$term_object = get_queried_object();
+
+$image = get_field('imagecats', $term_object);
+?>
+
+
+
+
+<?php if($image): ?>
+		<img src="<?php echo $image ?>" class="cat__mainImage" />
+<?php endif; ?>
+
+
+<div class="woocommerce-category-description">
+    <!-- <div class="title"><?php //echo $term_object->name; ?></div> -->
+    <div class="description"><?php echo $term_object->description; ?></div>
+</div>
+	</div>
+</div>
 
 <div class="<?php echo cartzilla_get_shop_page_style() !== 'style-v3' ? 'container pb-5 mb-2 mb-md-4' : 'container-fluid p-0';?>">
 
